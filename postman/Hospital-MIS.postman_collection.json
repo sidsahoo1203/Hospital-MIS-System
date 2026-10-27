@@ -1,0 +1,868 @@
+{
+  "info": {
+    "name": "Hospital MIS API",
+    "description": "Local API for the Hospital MIS project.\n\nStaff (Admin, Doctor) log in with httpOnly cookies (adminToken / doctorToken) that Postman keeps automatically. Patients have no accounts: booking is public.\n\nHospital flow: Public > Book Appointment, Admin > Accept, Admin > Mark Arrived, Doctor > Complete Consultation, Admin > Generate Receipt.\n\nThere is exactly one admin account (created with `npm run create-admin`); its logins last ADMIN_SESSION_HOURS and can be used on several PCs at once. Only one staff session per browser at a time: logging in as a Doctor logs the Admin out (and vice versa).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000"
+    },
+    {
+      "key": "adminEmail",
+      "value": "admin@example.com"
+    },
+    {
+      "key": "adminPassword",
+      "value": "change-me-123"
+    },
+    {
+      "key": "doctorEmail",
+      "value": "doctor@example.com"
+    },
+    {
+      "key": "doctorPassword",
+      "value": "change-me-123"
+    },
+    {
+      "key": "doctorId",
+      "value": ""
+    },
+    {
+      "key": "appointmentId",
+      "value": ""
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Public (patient website)",
+      "item": [
+        {
+          "name": "Get All Doctors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const d = (pm.response.json().doctors || [])[0];",
+                  "if (d) pm.collectionVariables.set('doctorId', d._id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/doctors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "doctors"
+              ]
+            },
+            "description": "Saves the first doctor's id as {{doctorId}}."
+          }
+        },
+        {
+          "name": "Get Consultation Fee",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/fee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "fee"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Book Appointment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const a = pm.response.json().appointment;",
+                  "if (a && a._id) pm.collectionVariables.set('appointmentId', a._id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/post",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "post"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ravi\",\n  \"lastName\": \"Kumar\",\n  \"email\": \"ravi.kumar@example.com\",\n  \"phone\": \"9123456780\",\n  \"nic\": \"345678901234\",\n  \"dob\": \"1998-07-15\",\n  \"gender\": \"Male\",\n  \"appointment_date\": \"2026-12-01\",\n  \"department\": \"Cardiology\",\n  \"doctorId\": \"{{doctorId}}\",\n  \"address\": \"12 MG Road, Bhubaneswar\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "No login needed. `department` must match the doctor's department. Saves {{appointmentId}}."
+          }
+        },
+        {
+          "name": "Send Contact Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/message/send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "message",
+                "send"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ravi\",\n  \"lastName\": \"Kumar\",\n  \"email\": \"ravi.kumar@example.com\",\n  \"phone\": \"9123456780\",\n  \"message\": \"I would like to know the OPD timings.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Medicines (prices & stock)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/medicines",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "medicines"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Place Store Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/medicines/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "medicines",
+                "orders"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": {\n    \"name\": \"Ravi Kumar\",\n    \"email\": \"ravi.kumar@example.com\",\n    \"phone\": \"9123456780\",\n    \"address\": \"12 MG Road, Bhubaneswar, Odisha - 751001\"\n  },\n  \"items\": [\n    {\n      \"code\": \"1\",\n      \"quantity\": 2\n    },\n    {\n      \"code\": \"2\",\n      \"quantity\": 1\n    }\n  ],\n  \"promoCode\": \"DISCOUNT10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Cash on delivery. `code` is the medicine code from Get Medicines. Prices and totals are computed by the server."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Staff session",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{adminEmail}}\",\n  \"password\": \"{{adminPassword}}\",\n  \"role\": \"Admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{doctorEmail}}\",\n  \"password\": \"{{doctorPassword}}\",\n  \"role\": \"Doctor\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Who Am I",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Change My Password (Doctor)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "password"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"old-password\",\n  \"newPassword\": \"new-password-123\",\n  \"confirmPassword\": \"new-password-123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "logout"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Live Updates Stream (SSE)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "events"
+              ]
+            },
+            "description": "Server-Sent Events used by the dashboard for live updates. Postman shows the stream; each event is {topics:[...]}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get All Appointments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const list = pm.response.json().appointments || [];",
+                  "if (list.length) pm.collectionVariables.set('appointmentId', list[list.length - 1]._id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/getall",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "getall"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Accept / Reject Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/update/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "update",
+                "{{appointmentId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Accepted\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "status: Pending | Accepted | Rejected (locked once the patient has arrived)"
+          }
+        },
+        {
+          "name": "Mark Patient Arrived",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/visit/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "visit",
+                "{{appointmentId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"visited\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Appointment must be Accepted. Send visited:false to undo (before a receipt exists)."
+          }
+        },
+        {
+          "name": "Generate Receipt",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/receipt/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "receipt",
+                "{{appointmentId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"Cash\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "method: Cash | UPI | Card. Patient must have arrived. Amount = consultation fee."
+          }
+        },
+        {
+          "name": "Get Appointment (receipt data)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "{{appointmentId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/delete/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "delete",
+                "{{appointmentId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add New Doctor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/doctor/addnew",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "doctor",
+                "addnew"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "firstName",
+                  "value": "Asha",
+                  "type": "text"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Verma",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "asha.verma@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "9876501234",
+                  "type": "text"
+                },
+                {
+                  "key": "nic",
+                  "value": "234567890123",
+                  "type": "text"
+                },
+                {
+                  "key": "dob",
+                  "value": "1985-03-21",
+                  "type": "text"
+                },
+                {
+                  "key": "gender",
+                  "value": "Female",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "doctor-pass-123",
+                  "type": "text"
+                },
+                {
+                  "key": "doctorDepartment",
+                  "value": "Cardiology",
+                  "type": "text"
+                },
+                {
+                  "key": "docAvatar",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "description": "docAvatar (photo) is optional. The email + password become the doctor's login."
+          }
+        },
+        {
+          "name": "Remove Doctor",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/doctor/{{doctorId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "doctor",
+                "{{doctorId}}"
+              ]
+            },
+            "description": "Needs the admin password in the body. Cancels the doctor's open appointments; visited/paid ones are kept.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adminPassword\": \"{{adminPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get All Messages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/message/getall",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "message",
+                "getall"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Medicine Orders (all sales)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/medicines/orders/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "medicines",
+                "orders",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Store Order Paid",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/medicines/orders/{{orderId}}/paid",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "medicines",
+                "orders",
+                "{{orderId}}",
+                "paid"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Stock",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/medicines/1/stock",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "medicines",
+                "1",
+                "stock"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 50\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Adds units to medicine code 1."
+          }
+        },
+        {
+          "name": "Add / Change Doctor Photo",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/user/doctor/{{doctorId}}/photo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "doctor",
+                "{{doctorId}}",
+                "photo"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "docAvatar",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "description": "Choose a JPG/PNG/WEBP for docAvatar."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctor",
+      "item": [
+        {
+          "name": "My Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/mine",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "mine"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Complete Consultation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/appointment/complete/{{appointmentId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "appointment",
+                "complete",
+                "{{appointmentId}}"
+              ]
+            },
+            "description": "Patient must have arrived. `items` are dispensed from stock. Send `paymentMethod` (Cash|UPI|Card) to collect fee + medicines now; omit it to let the admin generate the receipt later.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Mild hypertension. Review in 4 weeks.\",\n  \"items\": [\n    {\n      \"code\": \"1\",\n      \"quantity\": 1\n    }\n  ],\n  \"paymentMethod\": \"UPI\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

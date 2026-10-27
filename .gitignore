@@ -1,0 +1,9 @@
+node_modules
+.env
+.env.local
+backend/config/.env
+LOCAL_ADMIN_CREDENTIALS.txt
+.DS_Store
+
+# crash logs from Git Bash
+*.stackdump

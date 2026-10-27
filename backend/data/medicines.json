@@ -1,0 +1,770 @@
+[
+  {
+    "code": "1",
+    "name": "Aspirin",
+    "category": "Pain Relief",
+    "description": "Pain reliever and anti-inflammatory medication.",
+    "price": 60,
+    "stock": 77
+  },
+  {
+    "code": "2",
+    "name": "Ibuprofen",
+    "category": "Pain Relief",
+    "description": "NSAID for pain and fever.",
+    "price": 75,
+    "stock": 114
+  },
+  {
+    "code": "3",
+    "name": "Acetaminophen",
+    "category": "Pain Relief",
+    "description": "Pain reliever and fever reducer.",
+    "price": 70,
+    "stock": 40
+  },
+  {
+    "code": "4",
+    "name": "Naproxen",
+    "category": "Pain Relief",
+    "description": "NSAID for pain and inflammation.",
+    "price": 115,
+    "stock": 77
+  },
+  {
+    "code": "5",
+    "name": "Tramadol",
+    "category": "Pain Relief",
+    "description": "Pain reliever for moderate to severe pain.",
+    "price": 155,
+    "stock": 114
+  },
+  {
+    "code": "6",
+    "name": "Ketorolac",
+    "category": "Pain Relief",
+    "description": "NSAID for short-term pain relief.",
+    "price": 150,
+    "stock": 40
+  },
+  {
+    "code": "7",
+    "name": "Celecoxib",
+    "category": "Pain Relief",
+    "description": "Cox-2 inhibitor for pain relief.",
+    "price": 130,
+    "stock": 77
+  },
+  {
+    "code": "8",
+    "name": "Morphine",
+    "category": "Pain Relief",
+    "description": "Strong pain reliever for severe pain.",
+    "price": 210,
+    "stock": 114
+  },
+  {
+    "code": "9",
+    "name": "Amoxicillin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for infections.",
+    "price": 110,
+    "stock": 40
+  },
+  {
+    "code": "10",
+    "name": "Cefalexin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for bacterial infections.",
+    "price": 105,
+    "stock": 77
+  },
+  {
+    "code": "11",
+    "name": "Azithromycin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for respiratory infections.",
+    "price": 130,
+    "stock": 114
+  },
+  {
+    "code": "12",
+    "name": "Doxycycline",
+    "category": "Antibiotics",
+    "description": "Antibiotic for various infections.",
+    "price": 145,
+    "stock": 40
+  },
+  {
+    "code": "13",
+    "name": "Clindamycin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for serious infections.",
+    "price": 140,
+    "stock": 77
+  },
+  {
+    "code": "14",
+    "name": "Levofloxacin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for bacterial infections.",
+    "price": 155,
+    "stock": 114
+  },
+  {
+    "code": "15",
+    "name": "Ciprofloxacin",
+    "category": "Antibiotics",
+    "description": "Antibiotic for urinary tract infections.",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "code": "16",
+    "name": "Metronidazole",
+    "category": "Antibiotics",
+    "description": "Antibiotic for various infections.",
+    "price": 150,
+    "stock": 77
+  },
+  {
+    "code": "17",
+    "name": "Metformin",
+    "category": "Diabetes",
+    "description": "Medication for type 2 diabetes.",
+    "price": 130,
+    "stock": 114
+  },
+  {
+    "code": "18",
+    "name": "Glipizide",
+    "category": "Diabetes",
+    "description": "Medication to control blood sugar levels.",
+    "price": 115,
+    "stock": 40
+  },
+  {
+    "code": "19",
+    "name": "Glyburide",
+    "category": "Diabetes",
+    "description": "Sulfonylurea for type 2 diabetes.",
+    "price": 140,
+    "stock": 77
+  },
+  {
+    "code": "20",
+    "name": "Sitagliptin",
+    "category": "Diabetes",
+    "description": "DPP-4 inhibitor for diabetes management.",
+    "price": 155,
+    "stock": 114
+  },
+  {
+    "code": "21",
+    "name": "Insulin Glargine",
+    "category": "Diabetes",
+    "description": "Long-acting insulin for diabetes.",
+    "price": 210,
+    "stock": 40
+  },
+  {
+    "code": "22",
+    "name": "Canagliflozin",
+    "category": "Diabetes",
+    "description": "SGLT2 inhibitor for diabetes.",
+    "price": 180,
+    "stock": 77
+  },
+  {
+    "code": "23",
+    "name": "Dapagliflozin",
+    "category": "Diabetes",
+    "description": "SGLT2 inhibitor for diabetes management.",
+    "price": 185,
+    "stock": 114
+  },
+  {
+    "code": "24",
+    "name": "Acarbose",
+    "category": "Diabetes",
+    "description": "Medication to lower blood sugar after meals.",
+    "price": 135,
+    "stock": 40
+  },
+  {
+    "code": "33",
+    "name": "Lisinopril",
+    "category": "Blood Pressure",
+    "description": "Medication for high blood pressure.",
+    "price": 90,
+    "stock": 40
+  },
+  {
+    "code": "34",
+    "name": "Amlodipine",
+    "category": "Blood Pressure",
+    "description": "Calcium channel blocker for high blood pressure.",
+    "price": 95,
+    "stock": 77
+  },
+  {
+    "code": "35",
+    "name": "Losartan",
+    "category": "Blood Pressure",
+    "description": "Angiotensin receptor blocker for hypertension.",
+    "price": 110,
+    "stock": 114
+  },
+  {
+    "code": "36",
+    "name": "Hydrochlorothiazide",
+    "category": "Blood Pressure",
+    "description": "Diuretic for high blood pressure.",
+    "price": 80,
+    "stock": 40
+  },
+  {
+    "code": "37",
+    "name": "Metoprolol",
+    "category": "Blood Pressure",
+    "description": "Beta-blocker for hypertension.",
+    "price": 125,
+    "stock": 77
+  },
+  {
+    "code": "38",
+    "name": "Carvedilol",
+    "category": "Blood Pressure",
+    "description": "Beta-blocker for heart failure and hypertension.",
+    "price": 140,
+    "stock": 114
+  },
+  {
+    "code": "39",
+    "name": "Diltiazem",
+    "category": "Blood Pressure",
+    "description": "Calcium channel blocker for high blood pressure.",
+    "price": 115,
+    "stock": 40
+  },
+  {
+    "code": "40",
+    "name": "Benazepril",
+    "category": "Blood Pressure",
+    "description": "ACE inhibitor for hypertension.",
+    "price": 110,
+    "stock": 77
+  },
+  {
+    "code": "41",
+    "name": "Atenolol",
+    "category": "Cardiovascular",
+    "description": "Beta-blocker for heart issues.",
+    "price": 145,
+    "stock": 114
+  },
+  {
+    "code": "42",
+    "name": "Clopidogrel",
+    "category": "Cardiovascular",
+    "description": "Antiplatelet medication for cardiovascular issues.",
+    "price": 200,
+    "stock": 40
+  },
+  {
+    "code": "43",
+    "name": "Warfarin",
+    "category": "Cardiovascular",
+    "description": "Anticoagulant for blood clots.",
+    "price": 185,
+    "stock": 77
+  },
+  {
+    "code": "44",
+    "name": "Prasugrel",
+    "category": "Cardiovascular",
+    "description": "Medication for heart failure and rhythm issues.",
+    "price": 160,
+    "stock": 114
+  },
+  {
+    "code": "45",
+    "name": "Dabigatran",
+    "category": "Cardiovascular",
+    "description": "Medication for heart failure.",
+    "price": 165,
+    "stock": 40
+  },
+  {
+    "code": "46",
+    "name": "Bisoprolol",
+    "category": "Cardiovascular",
+    "description": "Vasodilator for chest pain.",
+    "price": 150,
+    "stock": 77
+  },
+  {
+    "code": "47",
+    "name": "Rivaroxaban",
+    "category": "Cardiovascular",
+    "description": "Statin for heart health.",
+    "price": 175,
+    "stock": 114
+  },
+  {
+    "code": "48",
+    "name": "Sacubitril",
+    "category": "Cardiovascular",
+    "description": "Medication for heart failure.",
+    "price": 210,
+    "stock": 40
+  },
+  {
+    "code": "49",
+    "name": "Levothyroxine",
+    "category": "Hormones",
+    "description": "Thyroid hormone replacement.",
+    "price": 135,
+    "stock": 77
+  },
+  {
+    "code": "50",
+    "name": "Estrogen",
+    "category": "Hormones",
+    "description": "Hormone therapy for menopause.",
+    "price": 250,
+    "stock": 114
+  },
+  {
+    "code": "51",
+    "name": "Progesterone",
+    "category": "Hormones",
+    "description": "Hormone for menstrual cycle regulation.",
+    "price": 225,
+    "stock": 40
+  },
+  {
+    "code": "52",
+    "name": "Testosterone",
+    "category": "Hormones",
+    "description": "Hormone replacement therapy.",
+    "price": 300,
+    "stock": 77
+  },
+  {
+    "code": "53",
+    "name": "Insulin",
+    "category": "Hormones",
+    "description": "Hormone for blood sugar regulation.",
+    "price": 250,
+    "stock": 114
+  },
+  {
+    "code": "54",
+    "name": "Hydrocortisone",
+    "category": "Hormones",
+    "description": "Corticosteroid for inflammation.",
+    "price": 205,
+    "stock": 40
+  },
+  {
+    "code": "55",
+    "name": "Somatropin",
+    "category": "Hormones",
+    "description": "Growth hormone for growth disorders.",
+    "price": 500,
+    "stock": 77
+  },
+  {
+    "code": "56",
+    "name": "Desmopressin",
+    "category": "Hormones",
+    "description": "Hormone for bedwetting.",
+    "price": 200,
+    "stock": 114
+  },
+  {
+    "code": "57",
+    "name": "Gabapentin",
+    "category": "Neurology",
+    "description": "Medication for nerve pain.",
+    "price": 130,
+    "stock": 40
+  },
+  {
+    "code": "58",
+    "name": "Carbamazepine",
+    "category": "Neurology",
+    "description": "Medication for seizures and nerve pain.",
+    "price": 145,
+    "stock": 77
+  },
+  {
+    "code": "59",
+    "name": "Topiramate",
+    "category": "Neurology",
+    "description": "Medication for seizures and migraines.",
+    "price": 140,
+    "stock": 114
+  },
+  {
+    "code": "60",
+    "name": "Baclofen",
+    "category": "Neurology",
+    "description": "Muscle relaxant for spasms.",
+    "price": 110,
+    "stock": 40
+  },
+  {
+    "code": "61",
+    "name": "Valproate",
+    "category": "Neurology",
+    "description": "Medication for epilepsy and mood stabilization.",
+    "price": 155,
+    "stock": 77
+  },
+  {
+    "code": "62",
+    "name": "Tizanidine",
+    "category": "Neurology",
+    "description": "Muscle relaxant for spasms.",
+    "price": 150,
+    "stock": 114
+  },
+  {
+    "code": "63",
+    "name": "Lamotrigine",
+    "category": "Neurology",
+    "description": "Medication for epilepsy and bipolar disorder.",
+    "price": 135,
+    "stock": 40
+  },
+  {
+    "code": "64",
+    "name": "Levetiracetam",
+    "category": "Neurology",
+    "description": "Antiepileptic medication.",
+    "price": 125,
+    "stock": 77
+  },
+  {
+    "code": "65",
+    "name": "Sertraline",
+    "category": "Mental Health",
+    "description": "Antidepressant for depression and anxiety.",
+    "price": 130,
+    "stock": 114
+  },
+  {
+    "code": "66",
+    "name": "Fluoxetine",
+    "category": "Mental Health",
+    "description": "Antidepressant for depression.",
+    "price": 110,
+    "stock": 40
+  },
+  {
+    "code": "67",
+    "name": "Escitalopram",
+    "category": "Mental Health",
+    "description": "Antidepressant for anxiety and depression.",
+    "price": 115,
+    "stock": 77
+  },
+  {
+    "code": "68",
+    "name": "Bupropion",
+    "category": "Mental Health",
+    "description": "Medication for depression and smoking cessation.",
+    "price": 135,
+    "stock": 114
+  },
+  {
+    "code": "69",
+    "name": "Lithium",
+    "category": "Mental Health",
+    "description": "Medication for bipolar disorder.",
+    "price": 165,
+    "stock": 40
+  },
+  {
+    "code": "70",
+    "name": "Buspirone",
+    "category": "Mental Health",
+    "description": "Anxiolytic for anxiety.",
+    "price": 100,
+    "stock": 77
+  },
+  {
+    "code": "71",
+    "name": "Aripiprazole",
+    "category": "Mental Health",
+    "description": "Antipsychotic for schizophrenia.",
+    "price": 160,
+    "stock": 114
+  },
+  {
+    "code": "72",
+    "name": "Quetiapine",
+    "category": "Mental Health",
+    "description": "Antipsychotic for bipolar disorder.",
+    "price": 175,
+    "stock": 40
+  },
+  {
+    "code": "73",
+    "name": "Albuterol",
+    "category": "Respiratory",
+    "description": "Bronchodilator for asthma.",
+    "price": 110,
+    "stock": 77
+  },
+  {
+    "code": "74",
+    "name": "Fluticasone",
+    "category": "Respiratory",
+    "description": "Corticosteroid for asthma and allergies.",
+    "price": 145,
+    "stock": 114
+  },
+  {
+    "code": "75",
+    "name": "Montelukast",
+    "category": "Respiratory",
+    "description": "Medication for asthma and allergies.",
+    "price": 130,
+    "stock": 40
+  },
+  {
+    "code": "76",
+    "name": "Budesonide",
+    "category": "Respiratory",
+    "description": "Inhaled corticosteroid for asthma.",
+    "price": 140,
+    "stock": 77
+  },
+  {
+    "code": "77",
+    "name": "Salmeterol",
+    "category": "Respiratory",
+    "description": "Long-acting bronchodilator for asthma.",
+    "price": 115,
+    "stock": 114
+  },
+  {
+    "code": "78",
+    "name": "Theophylline",
+    "category": "Respiratory",
+    "description": "Medication for asthma and COPD.",
+    "price": 155,
+    "stock": 40
+  },
+  {
+    "code": "79",
+    "name": "Ipratropium",
+    "category": "Respiratory",
+    "description": "Bronchodilator for COPD.",
+    "price": 100,
+    "stock": 77
+  },
+  {
+    "code": "80",
+    "name": "Cromolyn Sodium",
+    "category": "Respiratory",
+    "description": "Medication for asthma prevention.",
+    "price": 150,
+    "stock": 114
+  },
+  {
+    "code": "81",
+    "name": "Loratadine",
+    "category": "Allergies",
+    "description": "Antihistamine for allergies.",
+    "price": 90,
+    "stock": 40
+  },
+  {
+    "code": "82",
+    "name": "Cetirizine",
+    "category": "Allergies",
+    "description": "Antihistamine for allergic reactions.",
+    "price": 95,
+    "stock": 77
+  },
+  {
+    "code": "83",
+    "name": "Fexofenadine",
+    "category": "Allergies",
+    "description": "Antihistamine for hay fever.",
+    "price": 110,
+    "stock": 114
+  },
+  {
+    "code": "84",
+    "name": "Diphenhydramine",
+    "category": "Allergies",
+    "description": "Antihistamine for allergies and sleep.",
+    "price": 70,
+    "stock": 40
+  },
+  {
+    "code": "85",
+    "name": "Desloratadine",
+    "category": "Allergies",
+    "description": "Antihistamine for seasonal allergies.",
+    "price": 125,
+    "stock": 77
+  },
+  {
+    "code": "86",
+    "name": "Levocetirizine",
+    "category": "Allergies",
+    "description": "Antihistamine for allergic rhinitis.",
+    "price": 120,
+    "stock": 114
+  },
+  {
+    "code": "87",
+    "name": "Bepotastine",
+    "category": "Allergies",
+    "description": "Antihistamine for allergy relief.",
+    "price": 140,
+    "stock": 40
+  },
+  {
+    "code": "88",
+    "name": "Olopatadine",
+    "category": "Allergies",
+    "description": "Antihistamine for eye allergies.",
+    "price": 150,
+    "stock": 77
+  },
+  {
+    "code": "89",
+    "name": "Prednisone",
+    "category": "Anti-inflammatory",
+    "description": "Corticosteroid for inflammation.",
+    "price": 155,
+    "stock": 114
+  },
+  {
+    "code": "90",
+    "name": "Methylprednisolone",
+    "category": "Anti-inflammatory",
+    "description": "Corticosteroid for severe allergies.",
+    "price": 170,
+    "stock": 40
+  },
+  {
+    "code": "91",
+    "name": "Diclofenac",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for pain and inflammation.",
+    "price": 115,
+    "stock": 77
+  },
+  {
+    "code": "92",
+    "name": "Indomethacin",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for arthritis.",
+    "price": 130,
+    "stock": 114
+  },
+  {
+    "code": "93",
+    "name": "CelecoxibAnti",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for pain relief.",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "code": "94",
+    "name": "Nabumetone",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for pain and fever.",
+    "price": 85,
+    "stock": 77
+  },
+  {
+    "code": "95",
+    "name": "Sulfasalazine",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for arthritis and pain.",
+    "price": 145,
+    "stock": 114
+  },
+  {
+    "code": "96",
+    "name": "AspirinAnti",
+    "category": "Anti-inflammatory",
+    "description": "NSAID for pain and blood thinner.",
+    "price": 70,
+    "stock": 40
+  },
+  {
+    "code": "97",
+    "name": "Tamsulosin",
+    "category": "Urology",
+    "description": "Medication for enlarged prostate.",
+    "price": 115,
+    "stock": 77
+  },
+  {
+    "code": "98",
+    "name": "Finasteride",
+    "category": "Urology",
+    "description": "Medication for hair loss and enlarged prostate.",
+    "price": 160,
+    "stock": 114
+  },
+  {
+    "code": "99",
+    "name": "Dutasteride",
+    "category": "Urology",
+    "description": "Medication for enlarged prostate.",
+    "price": 175,
+    "stock": 40
+  },
+  {
+    "code": "100",
+    "name": "Oxybutynin",
+    "category": "Urology",
+    "description": "Medication for overactive bladder.",
+    "price": 130,
+    "stock": 77
+  },
+  {
+    "code": "101",
+    "name": "Solifenacin",
+    "category": "Urology",
+    "description": "Medication for overactive bladder.",
+    "price": 145,
+    "stock": 114
+  },
+  {
+    "code": "102",
+    "name": "Mirabegron",
+    "category": "Urology",
+    "description": "Medication for overactive bladder.",
+    "price": 190,
+    "stock": 40
+  },
+  {
+    "code": "103",
+    "name": "Sildenafil",
+    "category": "Urology",
+    "description": "Medication for erectile dysfunction.",
+    "price": 225,
+    "stock": 77
+  },
+  {
+    "code": "104",
+    "name": "Tadalafil",
+    "category": "Urology",
+    "description": "Medication for erectile dysfunction.",
+    "price": 200,
+    "stock": 114
+  }
+]
