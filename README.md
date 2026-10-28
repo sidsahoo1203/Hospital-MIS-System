@@ -94,4 +94,4 @@ A green **● Live** badge means the screen updates by itself when anyone else m
 
 ## Built with
 
-React (patient website and staff portal, hosted on Vercel) · Node.js & Express (server, hosted on Render) · MongoDB Atlas (database) · Cloudinary (doctor photos).
+React (patient website and staff portal, hosted on Vercel) · Node.js & Express (server, hosted on Render) · MongoDB Atlas (database) · Cloudinary (doctor photos) · UptimeRobot.
