@@ -49,7 +49,7 @@ const Footer = () => {
               <li>Mon - Fri: 9:00 AM - 7:00 PM</li>
               <li>Sat: 9:00 AM - 5:00 PM</li>
               <li>Sun: Closed</li>
-              <li className="pt-2">Phone: 9876543210</li>
+              <li className="pt-2">Phone: <a href="tel:+916359185847" className="hover:underline">+91 6359185847</a></li>
             </ul>
           </div>
         </div>

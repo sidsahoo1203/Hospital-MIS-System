@@ -40,8 +40,8 @@ const Footer = () => {
           <div className="flex-1">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-white text-center md:text-left">Get in Touch</h2>
             <ul className="space-y-2 text-sm sm:text-base text-center md:text-left">
-              <li className="text-gray-400">+91 98250 98250</li>
-              <li className="text-gray-400">contact@tomato.com</li>
+              <li className="text-gray-400"><a href="tel:+916359185847" className="hover:underline">+91 6359185847</a></li>
+              <li className="text-gray-400"><a href="https://hospital-mis-system.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:underline">hospital-mis-system.vercel.app</a></li>
             </ul>
           </div>
         </div>
@@ -49,7 +49,7 @@ const Footer = () => {
         <hr className="my-6 sm:my-8 md:my-10 border-gray-700" />
 
         <p className="text-center text-gray-500 text-xs sm:text-sm md:text-base">
-          Copyright 2024 © Tomato.com - All Rights Reserved
+          Copyright 2026 © MediTrack Hospital - All Rights Reserved
         </p>
       </div>
     </footer>

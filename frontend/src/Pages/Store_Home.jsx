@@ -73,7 +73,7 @@ const Store_Home = () => {
           </h3>
           <p className="text-gray-600">
             Contact our support team at{' '}
-            <span className="text-[#2f3d7e] font-semibold">9876543210</span>
+            <a href="tel:+916359185847" className="text-[#2f3d7e] font-semibold hover:underline">+91 6359185847</a>
           </p>
         </div>
       </div>

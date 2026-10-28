@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdEmail, MdPhone, MdLocationOn, MdArrowBack } from 'react-icons/md';
+import { MdEmail, MdPhone, MdLocationOn, MdArrowBack, MdLanguage } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import MessageForm from '../components/MessageForm';
 
@@ -28,15 +28,15 @@ const ContactUs = () => {
               <MdPhone className="text-[#2f3d7e] text-2xl" />
             </div>
             <h3 className="text-lg font-semibold text-[#2f3d7e] mb-2">Phone</h3>
-            <p className="text-gray-600">+91 9876543210</p>
+            <p className="text-gray-600"><a href="tel:+916359185847" className="hover:underline">+91 6359185847</a></p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-center">
             <div className="inline-block p-3 bg-blue-50 rounded-full mb-4">
-              <MdEmail className="text-[#2f3d7e] text-2xl" />
+              <MdLanguage className="text-[#2f3d7e] text-2xl" />
             </div>
-            <h3 className="text-lg font-semibold text-[#2f3d7e] mb-2">Email</h3>
-            <p className="text-gray-600">support@MediTrack.com</p>
+            <h3 className="text-lg font-semibold text-[#2f3d7e] mb-2">Website</h3>
+            <p className="text-gray-600"><a href="https://hospital-mis-system.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:underline">hospital-mis-system.vercel.app</a></p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-center">

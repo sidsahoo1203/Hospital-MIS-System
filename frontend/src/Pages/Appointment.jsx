@@ -68,7 +68,7 @@ const Appointment = () => {
         {/* Additional Information */}
         <div className="mt-12 text-center text-gray-600">
           <p className="mb-2">Need to reschedule or cancel?</p>
-          <p>Contact us at <span className="text-[#2f3d7e] font-semibold">9876543210</span></p>
+          <p>Contact us at <a href="tel:+916359185847" className="text-[#2f3d7e] font-semibold hover:underline">+91 6359185847</a></p>
         </div>
       </div>
     </div>
